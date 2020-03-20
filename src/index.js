@@ -59,7 +59,9 @@ function decode(expr) {
         .match(tenNumbersSlicing)
         // remove leading zeros in every ten number sequence
         .map(function (tenNumberSequence) {
-          return tenNumberSequence.replace(/^0+/, '');
+          return tenNumberSequence.replace(/^0+/, '')
+          // slice ten number sequence into two number sequence
+          .match(twoNumbersSlicing);
         });
     });
 
