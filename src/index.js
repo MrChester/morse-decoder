@@ -51,19 +51,30 @@ function decode(expr) {
     morseMessage,
     morseMessageConverted = [];
 
-  return expr.split(SPACE)
+  expr.split(SPACE)
     // slice sequnce into 10 numbers
     .map(function (sequence) {
-      return sequence
+      sequence
         // return array with elements of 10 numbers in every sequence
         .match(tenNumbersSlicing)
         // remove leading zeros in every ten number sequence
         .map(function (tenNumberSequence) {
-          return tenNumberSequence.replace(/^0+/, '')
+          tenNumberSequence.replace(/^0+/, '')
           // slice ten number sequence into two number sequence
-          .match(twoNumbersSlicing);
+          .match(twoNumbersSlicing)
+          .map(function(twoNumberSequence){
+            // add to temp arr two number sequence
+            tmpArr.push(twoNumberSequence);
+          });
+          // add space between letters
+          tmpArr.push(" ");
         });
+        // add space between words
+        tmpArr.push("   ");
     });
+
+    console.log(tmpArr);
+
 
 }
 
