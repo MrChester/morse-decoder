@@ -44,7 +44,11 @@ const MORSE_TABLE = {
 const SPACE = "**********";
 
 function decode(expr) {
-  
+  let tenNumbersSlicing = /(.{10}|.)/g,
+  twoNumbersSlicing = /(.{2}|.)/g,
+  tmpArr = [],
+  morseMessage,
+  morseMessageConverted = [];
 
 }
 
