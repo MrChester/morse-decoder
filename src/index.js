@@ -1,8 +1,3 @@
-const expr1 = "00101010100000000010001011101000101110100000111111**********00001011110000111111000010111000101110100000111010";
-const expr2 = "0000101010000000101100101010110000000010**********00000011110000000010";
-const expr3 = "00000000100000111010101010111100111011100000001011111110101011111010101010101010";
-const expr4 = "00000011110000000010";
-
 const MORSE_TABLE = {
   '.-': 'a',
   '-...': 'b',
@@ -86,8 +81,6 @@ function decode(expr) {
       }
     }, "");
 
-    console.log(tmpArr);
-
     //convert morse sequence into words
     morseMessage.split("   ").map(function (word) {
       word.split(" ").map(function (letter) {
@@ -99,11 +92,6 @@ function decode(expr) {
     return morseMessageConverted.join("").trim();
 
 }
-
-console.log(decode(expr1));
-console.log(decode(expr2));
-console.log(decode(expr3));
-console.log(decode(expr4));
 
 module.exports = {
   decode
