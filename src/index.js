@@ -46,14 +46,22 @@ const SPACE = "**********";
 
 function decode(expr) {
   let tenNumbersSlicing = /(.{10}|.)/g,
-  twoNumbersSlicing = /(.{2}|.)/g,
-  tmpArr = [],
-  morseMessage,
-  morseMessageConverted = [];
+    twoNumbersSlicing = /(.{2}|.)/g,
+    tmpArr = [],
+    morseMessage,
+    morseMessageConverted = [];
 
-  return expr.split(SPACE).map(function(sequence){
-    return sequence.match(tenNumbersSlicing);
-  });
+  return expr.split(SPACE)
+    // slice sequnce into 10 numbers
+    .map(function (sequence) {
+      return sequence
+        // return array with elements of 10 numbers in every sequence
+        .match(tenNumbersSlicing)
+        // remove leading zeros in every ten number sequence
+        .map(function (tenNumberSequence) {
+          return tenNumberSequence.replace(/^0+/, '');
+        });
+    });
 
 }
 
