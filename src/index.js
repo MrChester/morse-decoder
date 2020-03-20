@@ -73,6 +73,19 @@ function decode(expr) {
         tmpArr.push("   ");
     });
 
+    // convert temparr element into morse sequnce
+    return morseMessage = tmpArr.reduce(function(acc, item){
+      if (item === "10") {
+        return acc + ".";
+      } else if (item === "11") {
+        return acc + "-";
+      } else if (item === " ") {
+        return acc + " ";
+      } else {
+        return acc + "    ";
+      }
+    }, "");
+
     console.log(tmpArr);
 
 
