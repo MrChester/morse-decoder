@@ -74,7 +74,7 @@ function decode(expr) {
     });
 
     // convert temparr element into morse sequnce
-    return morseMessage = tmpArr.reduce(function(acc, item){
+    morseMessage = tmpArr.reduce(function(acc, item){
       if (item === "10") {
         return acc + ".";
       } else if (item === "11") {
@@ -88,6 +88,15 @@ function decode(expr) {
 
     console.log(tmpArr);
 
+    //convert morse sequence into words
+    morseMessage.split("   ").map(function (word) {
+      word.split(" ").map(function (letter) {
+        morseMessageConverted.push(MORSE_TABLE[letter]);
+      });
+      morseMessageConverted.push(" ");
+    });
+
+    return morseMessageConverted.join("").trim();
 
 }
 
@@ -96,6 +105,6 @@ console.log(decode(expr2));
 console.log(decode(expr3));
 console.log(decode(expr4));
 
-// module.exports = {
-//   decode
-// }
+module.exports = {
+  decode
+}
